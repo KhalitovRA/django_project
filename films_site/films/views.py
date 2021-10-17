@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 
 
@@ -8,3 +8,11 @@ def index(request):
 
 def home(request):
     return HttpResponse('Это будет основная страница')
+
+
+def get_film(request, film_name):
+    return HttpResponse('')
+
+
+def pageNotFound(request, exception):
+    return HttpResponseNotFound('<h1>страница не найдена</h1>')
