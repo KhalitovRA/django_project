@@ -4,6 +4,5 @@ from .views import *
 
 urlpatterns =[
     path('main/', index),
-    path('', home),
-    path('film/<str:film_name>/', get_film)
+    path('film/<int:pk>/', ViewFilms.as_view()),
 ]

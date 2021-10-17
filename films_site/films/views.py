@@ -1,18 +1,18 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
+from django.views.generic import DetailView
+
+from films.models import Films
 
 
 def index(request):
-    return HttpResponse('Страница приложения фильмов')
-
-
-def home(request):
-    return HttpResponse('Это будет основная страница')
-
-
-def get_film(request, film_name):
-    return HttpResponse('')
+    return render(request, 'films/index.html')
 
 
 def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>страница не найдена</h1>')
+
+
+class ViewFilms(DetailView):
+    model = Films
+    # context_object_name = ''
