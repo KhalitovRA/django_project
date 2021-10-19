@@ -1,31 +1,31 @@
 {% extends 'films/base.html' %}
+{% load static %}
 {% block title %}
 {{ title }}
 {% endblock %}
 {% block content %}
+<link rel="stylesheet" href="{% static 'films/css/card_style.css' %}">
 {% for film in films %}
-<div class="card mb-3">
-    <div class="card-header">
-        Категория : <a href="">{{ film.ru_title }}</a>
-    </div>
-    <div class="card-body">
-        <div class="media">
-            {% if film.photo %}
-            <img src="{{ film.photo.url }}" alt="" , width="350" , class="mr-3">
-            {% else %}
-            <img src="https://sun9-53.userapi.com/impg/K767FfhmbmmKwqnTRQGBWz0PFgqI937eKsaQqw/-POAk1S3kps.jpg?size=384x480&quality=96&proxy=1&sign=c4ccd38ce4bfd7510c8142702be87bba"
-                 alt="" , width="250" , class="mr-3">
-            {% endif %}
-            <div class="media-body" ,>
-                <h5 class="card-title">{{ film.en_title }}</h5>
-                <p class="card-text">{{ film.content|truncatewords:50 }}</p>
-                <a href="{{ item.get_absolute_url }}" class="btn btn-primary">Read more...</a>
+<section class="info">
+    <h1> Film: &mdash; <a href="" target="_blank">{{ film.ru_title }}</a></h1>
+</section>
+<section class="cards-wrapper">
+    <div class="card-grid-space">
+        <div class="num">{{ film.pk }}</div>
+        <a class="card" href=""
+           style="()">
+            <div>
+                <h4>{{ film.en_title }}</h4>
+                <h1>{{ film.ru_title }}</h1>
+                <p>{{ film.content|truncatewords:10 }}</p>
+                <div class="date"></div>
+                <div class="tags">
+                    <div class="tag"></div>
+                </div>
             </div>
-        </div>
+        </a>
     </div>
-    <div class="card-footer text-muted">
-        {{ film.created_at|date:"Y-m-d H:i" }}
-    </div>
-</div>
+</section>
 {% endfor %}
+
 {% endblock %}
