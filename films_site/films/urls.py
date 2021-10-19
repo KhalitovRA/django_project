@@ -3,7 +3,10 @@ from django.urls import path
 from .views import *
 
 urlpatterns =[
-    path('', home, name='home'),
+    path('genres/<int:genreid>', genres, name='genre'),
+    path('', HomeFilms.as_view(), name='home'),
     path('main/', index),
-    path('film/<int:pk>/', ViewFilms.as_view()),
+    path('login/', user_login, name='login'),
+    # path('film/<int:pk>/', show_film, name='film'),
+    path('movie_theaters', get_theaters, name='theaters'),
 ]

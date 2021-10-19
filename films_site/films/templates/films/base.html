@@ -1,0 +1,57 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'films/css/home_style.css' %}">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+
+</head>
+<body>
+<header class="header">
+    <div class="navbar container">
+        <a href="/">
+            <img src="{% static 'films/images/logo.svg' %}" alt="Logo">
+        </a>
+
+        <nav class="nav">
+            <button class="m-menu">
+                <svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <line y1="0.5" x2="15" y2="0.5" stroke="white"/>
+                    <line y1="8.5" x2="15" y2="8.5" stroke="white"/>
+                    <line y1="4.5" x2="15" y2="4.5" stroke="white"/>
+                </svg>
+            </button>
+            <ul class="menu">
+                <li class="menu-item">
+                    <a href="{% url 'home' %}" class="menu-link">Фильмы</a>
+                </li>
+                <li class="menu-item">
+                    <a href="{% url 'theaters' %}" class="menu-link">Кинотеатры</a>
+                </li>
+                <li class="menu-item">
+                    <a href="" class="menu-link">События</a>
+                </li>
+                <li class="menu-item">
+                    <a href="" class="menu-link">Поддержка</a>
+                </li>
+            </ul>
+        </nav>
+        <div>
+            <ul>
+                <li class="menu-item">
+                    <a href="{% url 'login' %}" class="menu-link">Login</a>
+                </li>
+            </ul>
+        </div>
+        <div class="user">
+            <span class="">Привет, Кирилл</span>
+            <img src="{% static 'films/images/avatar.jpg' %}" alt="Kirill">
+        </div>
+    </div>
+</header>
+{% block content %}{% endblock %}
+</body>
+</html>

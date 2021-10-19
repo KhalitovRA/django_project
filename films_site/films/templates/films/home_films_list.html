@@ -1,10 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Home, sweet home</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'films/base.html' %}
+{% block title %}
+{{ title }}
+{% endblock %}
+{% block content %}
+{% for film in films %}
+<div class="card mb-3">
+    <div class="card-header">
+        Категория : <a href="">{{ film.ru_title }}</a>
+    </div>
+    <div class="card-body">
+        <div class="media">
+            {% if film.photo %}
+            <img src="{{ film.photo.url }}" alt="" , width="350" , class="mr-3">
+            {% else %}
+            <img src="https://sun9-53.userapi.com/impg/K767FfhmbmmKwqnTRQGBWz0PFgqI937eKsaQqw/-POAk1S3kps.jpg?size=384x480&quality=96&proxy=1&sign=c4ccd38ce4bfd7510c8142702be87bba"
+                 alt="" , width="250" , class="mr-3">
+            {% endif %}
+            <div class="media-body" ,>
+                <h5 class="card-title">{{ film.en_title }}</h5>
+                <p class="card-text">{{ film.content|truncatewords:50 }}</p>
+                <a href="{{ item.get_absolute_url }}" class="btn btn-primary">Read more...</a>
+            </div>
+        </div>
+    </div>
+    <div class="card-footer text-muted">
+        {{ film.created_at|date:"Y-m-d H:i" }}
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
