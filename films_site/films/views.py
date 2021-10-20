@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
-from django.views.generic import ListView
+from django.views.generic import ListView, DetailView
+from django.urls import reverse
 
 from films.models import Films
 
@@ -24,6 +25,12 @@ def user_login(request):
 def show_film(request, film_id):
     return render(f'film with {film_id} id')
 
+
+class ViewFilm(DetailView):
+    model = Films
+    context_object_name = 'film_item'
+
+
 def get_theaters(request):
     return render(request, 'films/movie_theaters.html')
 
@@ -36,4 +43,4 @@ class HomeFilms(ListView):
     model = Films
     template_name = 'films/home_films_list.html'
     context_object_name = 'films'
-
+    # success_url = reverse('home')

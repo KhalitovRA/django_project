@@ -1,5 +1,7 @@
 from django.db import models
 
+from django.urls import reverse
+
 
 class Films(models.Model):
     en_title = models.CharField(max_length=150)
@@ -16,4 +18,11 @@ class Films(models.Model):
         return self.ru_title
 
     def get_absolute_url(self):
-        return reverse('view_film', kwargs={'film_id': self.pk})
+        return reverse('view_film', kwargs={'pk': self.pk})
+
+
+class Seance(models.Model):
+
+    name = models.CharField(max_length=150)
+    film = models.ForeignKey(Films, on_delete=models.CASCADE)
+

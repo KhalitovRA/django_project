@@ -1,0 +1,92 @@
+{% extends 'films/base.html' %}
+{% load static %}
+{% block title %} film_detail {% endblock %}
+{% block content %}
+<!-- /.navbar -->
+<div class="film container">
+    <div class="film-info">
+        <small class="film-title-small">{{ film_item.en_title }}</small>
+        <h1 class="film-title"><font face="Be Vietnam Pro">{{ film_item.ru_title }}</h1>
+        <p class="film-discription">{{ film_item.content}}
+        </p>
+        <div class="film-details">
+            <div class="time">
+                <img src="{% static 'films/images/clock 1.svg' %}" alt="clock">
+                <span>{{ film_item.duration_film }} мин.</span>
+            </div>
+            <div class="rating">
+                <img src="{% static 'films/images/imdb.svg' %}" alt="imdb">
+                <span>
+                    <strong class="rating-current">{{ film_item.film_score }}</strong> / 10
+                </span>
+            </div>
+        </div>
+        <!-- /.film-details -->
+    </div>
+    <!-- /.film-info -->
+    <a data-fancybox="video-gallery" data-src="https://www.youtube.com/watch?v=UsnDPok1ZOU" href=""
+       class="film-trailer">
+        <svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="50" fill="white"/>
+            <g clip-path="url(#clip0)">
+                <path d="M43.0758 30.0033C39.3071 27.8416 36.2518 29.6125 36.2518 33.9556V66.0059C36.2518 70.3533 39.3071 72.1219 43.0758 69.9623L71.0893 53.8967C74.8592 51.7342 74.8592 48.2306 71.0893 46.0686L43.0758 30.0033Z"
+                      fill="#F20D01"/>
+            </g>
+            <defs>
+                <clipPath id="clip0">
+                    <rect width="41.8013" height="41.8013" fill="white" transform="translate(34.1837 29.0816)"/>
+                </clipPath>
+            </defs>
+        </svg>
+    </a>
+</div>
+<div class="session container">
+    <div class="session-date">
+        <span class="session-label">Дата</span>
+        <div class="session-date-block">
+            <div class="session-date-item">
+                <span class="session-month">АПР</span>
+                <span class="session-day">{{ day }}</span>
+                <span class="session-week">пт</span>
+            </div>
+            <div class="session-date-item">
+                <span class="session-month">АПР</span>
+                <span class="session-day">28</span>
+                <span class="session-week">сб</span>
+            </div>
+            <div class="session-date-item">
+                <span class="session-month">АПР</span>
+                <span class="session-day">29</span>
+                <span class="session-week">вс</span>
+            </div>
+            <div class="session-date-item">
+                <span class="session-month">АПР</span>
+                <span class="session-day">30</span>
+                <span class="session-week">пн</span>
+            </div>
+        </div>
+    </div>
+    <!-- /.date -->
+    <div class="session-cinema">
+        <span class="session-label">Кинотеатр</span>
+        <select class="select select-cinema" name="cinema">
+            <option value="Октябрь, ул. Калужская 28">Октябрь, ул. Калужская 28</option>
+            <option value="Октябрь, ул. Калужская 28">IMAX, ул. Ленина 12</option>
+            <option value="Октябрь, ул. Калужская 28">XL, ул. Кирпичникова 14</option>
+            <option value="Октябрь, ул. Калужская 28">KazanMoll, Проспект Победы 9</option>
+        </select>
+    </div>
+    <!-- /.cinema -->
+    <div class="session-time">
+        <span class="session-label">Время</span>
+        <select class="select" name="cinema">
+            <option value="12:00">12:00</option>
+            <option value="13:45">13:45</option>
+            <option value="19:10">19:10</option>
+            <option value="21:40">21:40</option>
+        </select>
+    </div>
+    <!-- /.session-time -->
+</div>
+
+{% endblock %}
