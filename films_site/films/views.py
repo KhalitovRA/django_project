@@ -37,7 +37,3 @@ class HomeFilms(ListView):
     template_name = 'films/home_films_list.html'
     context_object_name = 'films'
 
-    def get_context_data(self, *, object_list=None, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context['title'] = 'Главная страница'
-        return context

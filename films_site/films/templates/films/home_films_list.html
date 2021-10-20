@@ -13,9 +13,9 @@
     <div class="card-grid-space">
         <div class="num">{{ film.pk }}</div>
         <a class="card" href=""
-           style="()">
+           style="--bg-img: url({{ film.photo }})">
             <div>
-                <h4>{{ film.en_title }}</h4>
+                <h5>{{ film.en_title }}</h5>
                 <h1>{{ film.ru_title }}</h1>
                 <p>{{ film.content|truncatewords:10 }}</p>
                 <div class="date"></div>

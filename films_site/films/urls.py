@@ -7,6 +7,6 @@ urlpatterns =[
     path('', HomeFilms.as_view(), name='home'),
     path('main/', index),
     path('login/', user_login, name='login'),
-    # path('film/<int:pk>/', show_film, name='film'),
+    path('film/<int:pk>/', show_film, name='view_film'),
     path('movie_theaters', get_theaters, name='theaters'),
 ]

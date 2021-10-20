@@ -16,4 +16,4 @@ class Films(models.Model):
         return self.ru_title
 
     def get_absolute_url(self):
-        return reverse('post', kwargs={'film_id': self.pk})
+        return reverse('view_film', kwargs={'film_id': self.pk})
