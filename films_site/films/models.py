@@ -13,6 +13,7 @@ class Films(models.Model):
     photo = models.ImageField(upload_to='photos/%Y/%m/%d/', blank=True)
     trailer_link = models.CharField(max_length=200)
     is_active = models.BooleanField(default=True)
+    gen = models.ForeignKey('Genres', on_delete=models.PROTECT, null=True)
 
     def __str__(self):
         return self.ru_title
@@ -21,8 +22,8 @@ class Films(models.Model):
         return reverse('view_film', kwargs={'pk': self.pk})
 
 
-class Seance(models.Model):
+class Genres(models.Model):
+    name = models.CharField(max_length=150, db_index=True)
 
-    name = models.CharField(max_length=150)
-    film = models.ForeignKey(Films, on_delete=models.CASCADE)
-
+    def __str__(self):
+        return self.name

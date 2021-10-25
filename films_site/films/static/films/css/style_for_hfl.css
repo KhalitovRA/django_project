@@ -9,10 +9,9 @@ body {
 }
 .header {
   padding-bottom: 60px;
+  background: linear-gradient(180deg, rgba(98, 20, 2, 0.31) 0%, #621402 85.62%), url(films_site/films/static/films/images/kino.jpg) no-repeat center top / cover;
 }
-img.background{
-position: absolute;
-}
+
 .navbar {
   justify-content: space-between;
   padding-top: 30px;

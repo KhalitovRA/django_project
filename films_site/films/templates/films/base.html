@@ -3,12 +3,14 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'films/css/home_style.css' %}">
+    {% block link %}{% endblock %}
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
+
 </head>
 <body>
+{% block image %}{% endblock %}
 <header class="header">
     <div class="navbar container">
         <a href="/">
@@ -40,14 +42,15 @@
         </nav>
         <div>
             <ul>
-                <li class="menu-item">
+                <li class="last">
                     <a href="{% url 'login' %}" class="menu-link">Login</a>
+                    <a href="" class="menu-link">Register</a>
                 </li>
             </ul>
         </div>
         <div class="user">
             <span class="">Привет, Кирилл</span>
-            <img src="{% static 'films/images/avatar.jpg' %}" alt="Kirill">
+            <!--            <img src="{% static 'films/images/avatar.jpg' %}" alt="Kirill">-->
         </div>
     </div>
     {% block content %}{% endblock %}

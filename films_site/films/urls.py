@@ -8,6 +8,7 @@ urlpatterns =[
     path('', HomeFilms.as_view(), name='home'),
     path('main/', index),
     path('login/', user_login, name='login'),
+    # path('register/', RegisterUser.as_view, name='register'),
     path('film/<int:pk>/', ViewFilm.as_view(), {'day': get_day, 'month': month}, name='view_film'),
     path('movie_theaters', get_theaters, name='theaters'),
 ]

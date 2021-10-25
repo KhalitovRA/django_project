@@ -1,7 +1,8 @@
+from django.contrib.auth.forms import UserCreationForm
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView
-from django.urls import reverse
+from django.views.generic import ListView, DetailView, CreateView
+from django.urls import reverse_lazy
 
 from films.models import Films
 
@@ -20,6 +21,10 @@ def index(request):
 
 def user_login(request):
     return render(request, 'films/login.html')
+
+
+def register(request):
+    return render(request, 'films/register.html')
 
 
 def show_film(request, film_id):
@@ -44,3 +49,13 @@ class HomeFilms(ListView):
     template_name = 'films/home_films_list.html'
     context_object_name = 'films'
     # success_url = reverse('home')
+
+#
+# class RegisterUser(CreateView):
+#     form_class = UserCreationForm
+#     template_name = 'films/register.html'
+#     success_url = reverse_lazy('login')
+#
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         return
