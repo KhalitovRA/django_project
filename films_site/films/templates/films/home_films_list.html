@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="{% static 'films/css/card_style.css' %}">
 {% for film in films %}
 <section class="info">
-    <h1> Film: &mdash; <a href="{{ film.get_absolute_url }}" target="_blank">{{ film.ru_title }}</a></h1>
+    <h1> Фильм: &mdash; <a href="{{ film.get_absolute_url }}" target="_blank">{{ film.ru_title }}</a></h1>
 </section>
 <section class="cards-wrapper">
     <div class="card-grid-space">

@@ -27,8 +27,8 @@ def register(request):
     return render(request, 'films/register.html')
 
 
-def show_film(request, film_id):
-    return render(f'film with {film_id} id')
+def show_genre(request, cat_id):
+    return render(f'film with {cat_id} id')
 
 
 class ViewFilm(DetailView):

@@ -27,3 +27,6 @@ class Genres(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('genre', kwargs={'gen_id': self.pk})

@@ -11,4 +11,5 @@ urlpatterns =[
     # path('register/', RegisterUser.as_view, name='register'),
     path('film/<int:pk>/', ViewFilm.as_view(), {'day': get_day, 'month': month}, name='view_film'),
     path('movie_theaters', get_theaters, name='theaters'),
+    path('genre/<int:pk>/', show_genre, name='genre'),
 ]

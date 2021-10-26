@@ -1,0 +1,38 @@
+{% load films_tags %}
+<nav class="nav">
+    <ul class="menu">
+
+        {% get_list_genres as genres %}
+        <ul class="mmenuu">
+            <li><a href="{% url 'home' %}">Фильмы</a>
+                <ul class="ssubmenuu">
+                    {% for item in genres %}
+                    <li><a href=#>{{ item.name}}</a></li>
+                    {% endfor %}
+                </ul>
+
+            </li>
+            <li><a href=#>Кинотеатры</a>
+                <ul class="ssubmenuu">
+                    {% for item in genres %}
+                    <li><a href=#>{{ item.name}}</a></li>
+                    {% endfor %}
+                </ul>
+            </li>
+            <li><a href=#>События</a>
+                <ul class="ssubmenuu">
+                    <li><a href=#>Событие 1</a></li>
+                    <li><a href=#>Событие 2</a></li>
+                    <li><a href=#>Событие 3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </ul>
+    <button class="m-menu">
+        <svg width="15" height="9" viewBox="0 0 15 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line y1="0.5" x2="15" y2="0.5" stroke="white"/>
+            <line y1="8.5" x2="15" y2="8.5" stroke="white"/>
+            <line y1="4.5" x2="15" y2="4.5" stroke="white"/>
+        </svg>
+    </button>
+</nav>

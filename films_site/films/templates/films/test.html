@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<li class="menu-item">
+    <a href="{% url 'home' %}" class="menu-link">Фильмы</a>
+    {% for item in gens %}
+<li>{{ item.name }}</li>
+{% endfor %}
+<li class="menu-item">
+    <a href="{% url 'theaters' %}" class="menu-link">Кинотеатры</a>
+</li>
+<li class="menu-item">
+    <a href="" class="menu-link">События</a>
+</li>
+<li class="menu-item">
+    <a href="" class="menu-link">Поддержка</a>
+</li>
+</body>
+</html>
