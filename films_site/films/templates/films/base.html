@@ -95,6 +95,7 @@ ul.mmenuu > li:hover > ul.ssubmenuu {
     /* Делаю элементы блочными. */
     display: block;
 }
+
     </style>
 </head>
 <body>
@@ -104,7 +105,7 @@ ul.mmenuu > li:hover > ul.ssubmenuu {
         <a href="{% url 'main' %}">
             <img src="{% static 'films/images/logo.svg' %}" alt="Logo">
         </a>
-{% include './_nav.html' %}
+        {% include './_nav.html' %}
         <div>
             <ul>
                 <li class="last">

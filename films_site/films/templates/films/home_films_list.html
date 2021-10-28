@@ -22,6 +22,9 @@
            style="--bg-img: url({{ film.photo }})">
             <div>
                 <h5>{{ film.en_title }}</h5>
+                {% for item in data %}
+                <h5>{{ item }}</h5>
+                {% endfor %}
                 <h1>{{ film.ru_title }}</h1>
                 <p>{{ film.content|truncatewords:10 }}</p>
                 <div class="date"></div>
@@ -33,5 +36,28 @@
     </div>
 </section>
 {% endfor %}
+{% if page_obj.has_other_pages %}
+<ul class="pagination">
+
+    {% if page_obj.has_previous %}
+    <li><a href="?page={{ page_obj.previous_page_number }}">«</a></li>
+    {% endif %}
+
+    {% for p in page_obj.paginator.page_range %}
+
+    {% if page_obj.number == p %}
+
+    <li><a href="?page={{ p }}">{{ p }}</a></li>
+
+    {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3%}
+    <li><a href="?page={{ p }}">{{ p }}</a></li>
+    {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+    <li><a href="?page={{ page_obj.next_page_number }}">»</a></li>
+    {% endif %}
+
+</ul>
+{% endif %}
 
 {% endblock %}

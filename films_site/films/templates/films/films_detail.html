@@ -57,26 +57,13 @@ background-size: 100%, 100%, 100%;
     <div class="session-date">
         <span class="session-label">Дата</span>
             <div class="session-date-block">
+                {% for item in data %}
                 <div class="session-date-item">
                     <span class="session-month">АПР</span>
-                    <span class="session-day">27</span>
+                    <span class="session-day">{{ item }}</span>
                     <span class="session-week">пт</span>
                 </div>
-                <div class="session-date-item">
-                    <span class="session-month">АПР</span>
-                    <span class="session-day">28</span>
-                    <span class="session-week">сб</span>
-                </div>
-                <div class="session-date-item">
-                    <span class="session-month">АПР</span>
-                    <span class="session-day">29</span>
-                    <span class="session-week">вс</span>
-                </div>
-                <div class="session-date-item">
-                    <span class="session-month">АПР</span>
-                    <span class="session-day">30</span>
-                    <span class="session-week">пн</span>
-                </div>
+                {% endfor %}
             </div>
     </div>
     <!-- /.date -->

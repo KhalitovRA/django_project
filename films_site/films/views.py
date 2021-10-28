@@ -5,6 +5,7 @@ from django.views.generic import ListView, DetailView, CreateView
 from django.urls import reverse_lazy
 
 from films.models import Films
+from films.get_data_info import get_four_days
 
 
 def genres(request, genreid):
@@ -35,6 +36,11 @@ class ViewFilm(DetailView):
     model = Films
     context_object_name = 'film_item'
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['data'] = get_four_days()
+        return context
+
 
 def get_theaters(request):
     return render(request, 'films/movie_theaters.html')
@@ -48,8 +54,12 @@ class HomeFilms(ListView):
     model = Films
     template_name = 'films/home_films_list.html'
     context_object_name = 'films'
+    paginate_by = 1
     # success_url = reverse('home')
 
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 
     def get_queryset(self):
         return Films.objects.filter(is_active=True)
