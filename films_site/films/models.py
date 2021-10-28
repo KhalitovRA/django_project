@@ -29,4 +29,4 @@ class Genres(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('genre', kwargs={'gen_id': self.pk})
+        return reverse('genre', kwargs={'gen_id': self.pk}).select_related('genre')

@@ -101,7 +101,7 @@ ul.mmenuu > li:hover > ul.ssubmenuu {
 {% block image %}{% endblock %}
 <header class="header">
     <div class="navbar container">
-        <a href="/">
+        <a href="{% url 'main' %}">
             <img src="{% static 'films/images/logo.svg' %}" alt="Logo">
         </a>
 {% include './_nav.html' %}

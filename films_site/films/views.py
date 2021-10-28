@@ -50,12 +50,15 @@ class HomeFilms(ListView):
     context_object_name = 'films'
     # success_url = reverse('home')
 
-#
-# class RegisterUser(CreateView):
-#     form_class = UserCreationForm
-#     template_name = 'films/register.html'
-#     success_url = reverse_lazy('login')
-#
-#     def get_context_data(self, **kwargs):
-#         context = super().get_context_data(**kwargs)
-#         return
+
+    def get_queryset(self):
+        return Films.objects.filter(is_active=True)
+
+
+class FilmsGenre(ListView):
+    model = Films
+    template_name = 'films/homes_films_list.html'
+    context_object_name = 'films'
+
+    def get_queryset(self):
+        return Films.objects.filter(gen_id=self.kwargs['genre_id'], is_active=True)

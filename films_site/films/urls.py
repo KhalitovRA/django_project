@@ -1,15 +1,15 @@
 from django.urls import path
 
 from .views import *
-from .get_data import get_day, month
 
 urlpatterns =[
-    path('genres/<int:genreid>', genres, name='genre'),
     path('', HomeFilms.as_view(), name='home'),
-    path('main/', index),
+    path('main/', index, name='main'),
     path('login/', user_login, name='login'),
     # path('register/', RegisterUser.as_view, name='register'),
-    path('film/<int:pk>/', ViewFilm.as_view(), {'day': get_day, 'month': month}, name='view_film'),
+    path('film/<int:pk>/', ViewFilm.as_view(), name='view_film'),
     path('movie_theaters', get_theaters, name='theaters'),
-    path('genre/<int:pk>/', show_genre, name='genre'),
+    path('genre/<int:pk>/', FilmsGenre.as_view(), name='genre'),
 ]
+
+# TODO: решить проблему с фильмам по жанру

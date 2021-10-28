@@ -1,8 +1,9 @@
 {% load films_tags %}
+{% get_list_genres as genres %}
 <nav class="nav">
     <ul class="menu">
 
-        {% get_list_genres as genres %}
+
         <ul class="mmenuu">
             <li><a href="{% url 'home' %}">Фильмы</a>
                 <ul class="ssubmenuu">
