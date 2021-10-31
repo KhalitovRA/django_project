@@ -57,11 +57,11 @@ background-size: 100%, 100%, 100%;
     <div class="session-date">
         <span class="session-label">Дата</span>
             <div class="session-date-block">
-                {% for item in data %}
+                {% for key, value in data.items %}
                 <div class="session-date-item">
-                    <span class="session-month">АПР</span>
-                    <span class="session-day">{{ item }}</span>
-                    <span class="session-week">пт</span>
+                    <span class="session-month">НОЯ</span>
+                    <span class="session-day">{{ key }}</span>
+                    <span class="session-week">{{ value }}</span>
                 </div>
                 {% endfor %}
             </div>
