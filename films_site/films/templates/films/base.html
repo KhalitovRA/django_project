@@ -96,6 +96,9 @@ ul.mmenuu > li:hover > ul.ssubmenuu {
     display: block;
 }
 
+
+
+
     </style>
 </head>
 <body>
@@ -106,16 +109,12 @@ ul.mmenuu > li:hover > ul.ssubmenuu {
             <img src="{% static 'films/images/logo.svg' %}" alt="Logo">
         </a>
         {% include './_nav.html' %}
-        <div>
-            <ul>
-                <li class="last">
-                    <a href="{% url 'login' %}" class="menu-link">Login</a>
-                    <a href="" class="menu-link">Register</a>
-                </li>
-            </ul>
-        </div>
         <div class="user">
-            <span class="">Привет, Кирилл</span>
+            {% if request.user.is_authenticated %}
+            <span class="">Привет, {{ user.username }}| <a href="{% url  'logout' %}">Выход</a></span>
+            {% else %}
+        <a href="{% url 'register' %}">Register</a> | <a href="{% url 'login' %}">Login</a>
+            {% endif %}
             <!--            <img src="{% static 'films/images/avatar.jpg' %}" alt="Kirill">-->
         </div>
     </div>

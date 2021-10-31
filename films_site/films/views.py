@@ -1,11 +1,15 @@
-from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import LoginView
 from django.http import HttpResponse, HttpResponseNotFound
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import ListView, DetailView, CreateView
 from django.urls import reverse_lazy
+from django.contrib.auth import login, logout
 
-from films.models import Films
-from films.get_data_info import get_four_days
+from .models import Films
+from .get_data_info import get_four_days
+from .utils import DataMixin
+from .forms import *
 
 
 def genres(request, genreid):
@@ -20,8 +24,9 @@ def index(request):
     return render(request, 'films/index.html')
 
 
-def user_login(request):
-    return render(request, 'films/login.html')
+def user_logout(request):
+    logout(request)
+    return redirect('login')
 
 
 def register(request):
@@ -72,3 +77,25 @@ class FilmsGenre(ListView):
 
     def get_queryset(self):
         return Films.objects.filter(gen_id=self.kwargs['genre_id'], is_active=True)
+
+
+class RegisterUser(DataMixin, CreateView):
+    form_class = RegisterUserForm
+    template_name = 'films/register.html'
+    success_url = reverse_lazy('login')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+
+class LoginUser(DataMixin, LoginView):
+    form_class = AuthenticationForm
+    template_name = 'films/login.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
+
+    def get_success_url(self):
+        return reverse_lazy('home')
