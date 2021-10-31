@@ -10,7 +10,7 @@ urlpatterns =[
     path('register/', RegisterUser.as_view(), name='register'),
     path('film/<int:pk>/', ViewFilm.as_view(), name='view_film'),
     path('movie_theaters', get_theaters, name='theaters'),
-    path('genre/<int:pk>/', FilmsGenre.as_view(), name='genre'),
+    path('genre/<int:gen_id>/', FilmsGenre.as_view(), name='genre'),
 ]
 
 # TODO: решить проблему с фильмам по жанру

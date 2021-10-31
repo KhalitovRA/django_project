@@ -33,10 +33,6 @@ def register(request):
     return render(request, 'films/register.html')
 
 
-def show_genre(request, cat_id):
-    return render(f'film with {cat_id} id')
-
-
 class ViewFilm(DetailView):
     model = Films
     context_object_name = 'film_item'
@@ -72,11 +68,15 @@ class HomeFilms(ListView):
 
 class FilmsGenre(ListView):
     model = Films
-    template_name = 'films/homes_films_list.html'
+    template_name = 'films/home_films_list.html'
     context_object_name = 'films'
 
     def get_queryset(self):
-        return Films.objects.filter(gen_id=self.kwargs['genre_id'], is_active=True)
+        return Films.objects.filter(gen_id=self.kwargs['gen_id'], is_active=True)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 
 
 class RegisterUser(DataMixin, CreateView):
