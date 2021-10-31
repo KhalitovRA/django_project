@@ -7,99 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
-    <style>
-body {
-    /* Убираю отступы. */
-    margin:0px;
-    /* Убираю еще отступы. */
-    padding:0px;
-    /* Задаю шрифт. */
-    font: 14px 'Verdana';
-}
-ul {
-    /* Убираю маркеры у списка*/
-    list-style: none;
-    /* Делаю элементы блочными. */
-    display: block;
-    /* Убираю отступы. */
-    margin:0px;
-    /* Убираю еще отступы! */
-    padding:0px;
-    margin-right: 25px;
-    cursor: pointer;
-}
-ul:after {
-    /* Делаю элементы блочными. */
-    display: block;
-    /* Убираю выравнивание. */
-    float: none;
-    content: ' ';
-    clear: both;
-}
-ul.mmenuu > li {
-    /* Задаю выравнивание и позиционирование. */
-    float: left;
-    /* Считаем координаты относительно исходного места*/
-    position: relative;
-}
-ul.mmenuu > li > a {
-    /* Делаю элементы блочными: */
-    display: block;
-    /* Задаю белый цвет. */
-    color: #fff;
-    /* Задаю отступ 10px. */
-    padding: 10px;
-    /* Убираю форматирование*/
-    text-decoration: none;
-}
-ul.mmenuu > li > a:hover {
-    /* Задаю цвет при наведении. */
-    background-color: black;
-    opacity: 0.6;
-}
-ul.ssubmenuu {
-    position: absolute;
-    width: 240px;
-    top: 37px;
-    left:0px;
-    /* Делаю субменю скрытыми. */
-    display: none;
-    background-color: black;
-    opacity: 0.6;
-    margin-right: 25px;
-}
-ul.ssubmenuu > li {
-    /* Блочное расположение элементов*/
-    display: block;
-
-}
-ul.ssubmenuu > li > a {
-    /* Делаю элементы блочными. */
-    display: block;
-    /* Убираю форматирование*/
-    text-decoration: none;
-    /* Задаю отступ. */
-    padding: 10px;
-    /* Задаю цвет. */
-    color: black;
-    /* Еще цвет. */
-    background-color: grey;
-}
-ul.ssubmenuu > li > a:hover {
-    /* Цвет бэкграунда при наведении. */
-    background-color: white;
-    /* Задаю подчеркивание*/
-    text-decoration: underline;
-}
-ul.mmenuu > li:hover > ul.ssubmenuu {
-    /* Делаю элементы блочными. */
-    display: block;
-}
-
-
-
-
-    </style>
+    <link rel="stylesheet" href="{% static 'films/css/genres.css' %}">
 </head>
 <body>
 {% block image %}{% endblock %}
@@ -113,7 +21,7 @@ ul.mmenuu > li:hover > ul.ssubmenuu {
             {% if request.user.is_authenticated %}
             <span class="">Привет, {{ user.username }}| <a href="{% url  'logout' %}">Выход</a></span>
             {% else %}
-        <a href="{% url 'register' %}">Register</a> | <a href="{% url 'login' %}">Login</a>
+            <a href="{% url 'register' %}">Register</a> | <a href="{% url 'login' %}">Login</a>
             {% endif %}
             <!--            <img src="{% static 'films/images/avatar.jpg' %}" alt="Kirill">-->
         </div>

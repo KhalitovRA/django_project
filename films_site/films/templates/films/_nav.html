@@ -2,13 +2,11 @@
 {% get_list_genres as genres %}
 <nav class="nav">
     <ul class="menu">
-
-
         <ul class="mmenuu">
             <li><a href="{% url 'home' %}">Фильмы</a>
                 <ul class="ssubmenuu">
                     {% for item in genres %}
-                    <li><a href=#>{{ item.name}}</a></li>
+                    <li><a href="{{ item.get_absolute_url }}">{{ item.name}}</a></li>
                     {% endfor %}
                 </ul>
 

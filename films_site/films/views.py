@@ -55,7 +55,7 @@ class HomeFilms(ListView):
     model = Films
     template_name = 'films/home_films_list.html'
     context_object_name = 'films'
-    paginate_by = 1
+    paginate_by = 2
     # success_url = reverse('home')
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -72,7 +72,7 @@ class FilmsGenre(ListView):
     context_object_name = 'films'
 
     def get_queryset(self):
-        return Films.objects.filter(gen_id=self.kwargs['gen_id'], is_active=True)
+        return Films.objects.filter(gen_id=self.kwargs['gen_id'], is_active=True).select_related('gen')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)

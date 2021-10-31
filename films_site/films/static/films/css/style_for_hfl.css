@@ -9,7 +9,7 @@ body {
 }
 .header {
   padding-bottom: 60px;
-  background: linear-gradient(180deg, rgba(98, 20, 2, 0.31) 0%, #621402 85.62%), url(images/kino.jpg) no-repeat center top / cover;
+  background: linear-gradient(180deg, rgba(98, 20, 2, 0.31) 0%, #621402 85.62%), url(../images/kino.jpg) no-repeat center top / cover;
 }
 
 .navbar {

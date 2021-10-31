@@ -12,5 +12,3 @@ urlpatterns =[
     path('movie_theaters', get_theaters, name='theaters'),
     path('genre/<int:gen_id>/', FilmsGenre.as_view(), name='genre'),
 ]
-
-# TODO: решить проблему с фильмам по жанру
